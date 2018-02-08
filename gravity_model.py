@@ -18,10 +18,11 @@ class prefectur():
 
 if __name__ == '__main__':
     list = []
-    ken_list = pd.read_csv("ken.csv",encoding="SHIFT-JIS",sep="\t")#県のリストを読み込ませる
-    distance_list = pd.read_csv("ken_distance.csv",encoding="SHIFT-JIS",sep="\t")#距離のリストを読み込ませる
+    ken_list = pd.read_csv("ken.csv")#県のリストを読み込ませる
+    distance_list = pd.read_csv("ken_distance.csv")#距離のリストを読み込ませる
     print(ken_list)
     print(distance_list)
-    print(a)
     for i in ken_list.values.tolist():#データフレームをリスト型にしてクラス作成
         list.append(prefectur(i))
+    for i in distance_list.values.tolist():
+        print(i)
