@@ -22,5 +22,6 @@ if __name__ == '__main__':
     distance_list = pd.read_csv("ken_distance.csv",encoding="SHIFT-JIS",sep="\t")#距離のリストを読み込ませる
     print(ken_list)
     print(distance_list)
+    print(a)
     for i in ken_list.values.tolist():#データフレームをリスト型にしてクラス作成
         list.append(prefectur(i))
