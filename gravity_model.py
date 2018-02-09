@@ -44,3 +44,13 @@ if __name__ == '__main__':
     for i in list:
         print(i.name)
         print(i.traffic)
+    data = {}
+    columns =[]
+    index = []
+    for i in list:
+        data[i.name] = i.traffic
+        columns.append(i.name)
+        index.append(i.name)
+    df = pd.DataFrame(data,columns,index)
+    print(df)
+    df.to_csv("traffic.csv")
