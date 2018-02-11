@@ -7,6 +7,12 @@ def gravity_model(population1,population2,distance):
     traffic = (G * population1 * population2) / (distance ** 2)
     return traffic
 
+def kanto():
+    return pd.read_csv("kanto_population.csv"),pd.read_csv("kanto_distance.csv")
+
+def kansai():
+    return pd.read_csv("kansai_population.csv"),pd.read_csv("kansai_distance.csv")
+
 class prefectur():
     def __init__(self,ken):
         self.name = ken[0]
@@ -20,8 +26,7 @@ class prefectur():
 if __name__ == '__main__':
     list = []
     distance = {}
-    ken_list = pd.read_csv("ken.csv")#県のリストを読み込ませる
-    distance_list = pd.read_csv("ken_distance.csv")#距離のリストを読み込ませる
+    ken_list, distance_list = kanto()#県のリストを読み込ませる
     print(ken_list)
     print(distance_list)
     for i in ken_list.values.tolist():#データフレームをリスト型にしてクラス作成
@@ -53,4 +58,3 @@ if __name__ == '__main__':
         index.append(i.name)
     df = pd.DataFrame(data,columns,index)
     print(df)
-    df.to_csv("traffic.csv")
