@@ -13,6 +13,9 @@ def kanto():
 def kansai():
     return pd.read_csv("kansai_population.csv"),pd.read_csv("kansai_distance.csv")
 
+def kanto_kansai():
+    return pd.read_csv("kanto_kansai_population.csv"),pd.read_csv("kanto_kansai_distance.csv")
+
 class prefectur():
     def __init__(self,ken):
         self.name = ken[0]
@@ -26,7 +29,7 @@ class prefectur():
 if __name__ == '__main__':
     list = []
     distance = {}
-    ken_list, distance_list = kanto()#県のリストを読み込ませる
+    ken_list, distance_list = kanto_kansai()#県のリストを読み込ませる
     print(ken_list)
     print(distance_list)
     for i in ken_list.values.tolist():#データフレームをリスト型にしてクラス作成
@@ -58,3 +61,4 @@ if __name__ == '__main__':
         index.append(i.name)
     df = pd.DataFrame(data,columns,index)
     print(df)
+    df.to_csv("kanto_kansai_traffic.csv")
